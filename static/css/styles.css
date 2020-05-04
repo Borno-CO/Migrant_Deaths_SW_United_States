@@ -1,0 +1,152 @@
+#background {
+    background-color: rgb(25, 43, 43)
+}
+
+#jumbo-color {
+    background-color: darkslategray;
+    color: white;
+}
+
+#nav-format-active {
+    font-size: 25px; 
+    padding-right: 50px;
+    color: white;  
+}
+
+#nav-format-standard {
+    font-size: 25px; 
+    padding-right: 40px;
+    color:black  
+}
+
+#nav-background {
+    background-color: gray;
+}
+
+#nav-icon-color {
+    background-color: white;
+    border-color: darkslategray;
+}
+
+#backer {
+    background-color: white;
+}
+
+#header-format {
+    text-align: center;
+    font-size: 45px;
+    background-color: darkslategray;
+    color: white;
+    padding-bottom: 5px;
+}
+
+#well-color {
+    align-self: auto;
+    background-color: darkslategray;
+    text-align: center;
+}
+
+#well-text {
+    font-size: 20px;
+    color: white;
+}
+
+#portSelection {
+    font-size: 11px;
+    background-color: lightgray;
+    color:black
+}
+
+
+#graph-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#map-container {
+    height: 600px;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#map-tag {
+    height: 100%;
+    width: 100%;
+}
+
+#i-frame {
+    height: 100%;
+    width: 100%; 
+}
+
+#ruler-color {
+    background-color:gray
+}
+
+#subheaders {
+    text-align: center;
+}
+#about-text {
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#data-link-text {
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+#accordion-header-format {
+    font-size: 20px;
+    background-color: darkslategray;
+    color: white;
+}
+
+#card-descriptive-text {
+    font-size: 12px;
+}
+
+
+
+
+/* SOUTHERN BORDER MAP PAGE ONLY */
+
+#southern-map-container {
+    height: 600px;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#southern-map-tag {
+    height: 100%;
+    width: 100%;
+}
+
+/* DASHBOARD MAP ONLY */
+
+.map_legend {
+    background-color: white;
+}
+
+.well-color {
+    align-self: auto;
+    background-color: darkslategray;
+    text-align: center;
+}
+.well-text {
+    font-size: 20px;
+    color: white;
+}
+#selDataset {
+    font-size: 11px;
+    background-color: lightgray;
+    color:black
+}
+.instruction-text {
+    font-size: 14px
+}

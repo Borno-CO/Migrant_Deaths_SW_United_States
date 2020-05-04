@@ -1,0 +1,50 @@
+Primary_Key,Cause_of_Death,Cause_of_Death_Category
+101,Accident (non-vehicle),Accident
+102,Drowning,Drowning
+103,"Drowning, Asphyxiation",Drowning
+104,Presumed drowning,Drowning
+105,Exposure,Exposure
+106,"Exposure, Hyperthermia",Exposure
+107,Heat stroke,Exposure
+108,Hyperthermia,Exposure
+109,Hypothermia,Exposure
+110,Presumed hyperthermia,Exposure
+111,Presumed hyperthermia/dehydration,Exposure
+112,Probable hyperthermia,Exposure
+113,Fall from border fence,Fall
+114,Fall into a canyon,Fall
+115,Asphyxiation,Medical-related
+116,Cardiac arrest,Medical-related
+117,Coronary artery atherosclerosis,Medical-related
+118,Dehydration,Medical-related
+119,"Dehydration, Exposure, Hyperthermia",Medical-related
+120,"Dehydration, Hyperthermia",Medical-related
+121,Envenomation,Medical-related
+122,"Exposure, Dehydration",Medical-related
+123,"Hyperthermia, Dehydration",Medical-related
+124,"Hyperthermia, Exposure, Dehydration",Medical-related
+125,"Hyperthermia, Presumed drowning",Medical-related
+126,Hypoglycemia,Medical-related
+127,Pneumonia,Medical-related
+128,Sickness and lack of access to medicines,Medical-related
+129,Mixed,Mixed
+130,Suicide,Suicide
+131,Unknown,Unknown
+132,Unknown (decomposed remains),Unknown
+133,Unknown (mummified and skeletal remains),Unknown
+134,Unknown (mummified remains),Unknown
+135,Unknown (skeletal remains),Unknown
+136,Fall from train,Vehicle-related
+137,Fall from vehicle,Vehicle-related
+138,Hit by train,Vehicle-related
+139,Hit by vehicle,Vehicle-related
+140,Train Accident,Vehicle-related
+141,Vehicle Accident,Vehicle-related
+142,Electrocution,Violence
+143,Excessive Physical Abuse,Violence
+144,Hanging,Violence
+145,Murdered,Violence
+146,Shot,Violence
+147,Unknown (multiple blunt force injuries),Violence
+148,Unknown (violence),Violence
+149,Violence,Violence

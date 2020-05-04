@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Migration Incidents - Project 2 - Dashboard</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="static/css/styles.css">
+    
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     
+    <!---Plotly Scripts -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+
+
+<div id="background">
+    <!-- HEADER / JUMBOTRON -->
+    <div class="jumbotron jumbotron-fluid" id="jumbo-color">
+      <div class="container">
+        <h1 class="display-4">Migrant Deaths in the Southwest United States</h1>
+        <br/>
+        <br/>
+        <p class="lead">Compiled by David Born, Sam Ewing and Pranav Jayanth</p>
+          
+        <br/>
+          
+        <!-- NAV BAR -->
+        <nav class="navbar navbar-expand-lg navbar-light" id="nav-background">
+          
+          <button class="navbar-toggler" id="nav-icon-color" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link active" id="nav-format-active" href="index.html"><strong>Dashboard</strong><span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" id="nav-format-standard" href="southern-border-map.html"><strong>Southern Border Map</strong></a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="container">
+      <div id="backer">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <h1 id="header-format">VISUALIZATIONS</h1>
+          </div>
+          <br/>
+        </div>
+
+      
+
+        <br/>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div id="map-container">
+              <div id="map-tag">
+                <!-- Append Map here -->
+                <iframe id="i-frame" src="dashboard-leaflet.html"></iframe>
+              </div>
+            </div>
+            <br/>
+            <h3 id="subheaders"><a href="dashboard-leaflet.html" target="_blank">See a larger version of this map here.</a></h3>
+          </div>
+        </div>
+
+        <br/>
+
+        <!-- YEAR SELECTION WELL -->
+        <div class="row">
+          <div class="col-md-2">
+            
+              <div class="well" id="well-color">
+                
+                <h5 id="well-text">Port</h5>
+                
+                  <select id="portSelection">
+                  <!-- JS port selections added here -->
+                  </select>
+                
+                
+              </div>
+            
+          </div>
+        
+          <div class="col-md-5">
+
+            <div id="graph-container">
+              <div id="migrant-graph-tag">
+                <!-- Append Migrant graph here -->
+                
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md-5">
+            
+            <div id="graph-container">
+              <div id="border-graph-tag">
+                <!-- Append Border graph here -->
+                
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <br/>
+        
+        <!-- ABOUT SECTION -->
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <h1 id="header-format">ABOUT THIS PROJECT</h1>
+              <br/>
+            <div class="col-12 col-md-8">
+              <h2 id="subheaders">Project Summary</h2>
+              <hr id="ruler-color"/>
+              <p id="about-text">The goal of this project is to examine migrant deaths in relation to border crossing traffic along the US-Mexico border. Through visualizing the data recorded by the Missing Migrant Project and the Bureau of Transportation Statistics, we aim to provide a means of visual analysis of migration patterns and missing migrants at different points-of-entry along the southern border.</p>
+              <br/>
+              <h2 id="subheaders">Data Transformation and Methodology</h2>
+              <hr id="ruler-color"/>
+
+
+
+              <!-- ACCORDION MENU -->
+
+              <div class="accordion" id="acc-menu">
+                <div class="card">
+                  <div id="accordion-header-format">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" id="accordion-header-format" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          1) Data Retrieval and Cleansing
+                        </button>
+                      </h2>
+                  </div>
+                </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#acc-menu">
+                    <div class="card-body">
+                      <p id="card-descriptive-text">Both datasets are retrieved from Kaggle (see right for more information) and are loaded into Python for processing. The Pandas library is used to load the .csv files into dataframes for refinement. Null-values and missing datapoints are dropped (when determined to be appropriate) and data is organized and adapted to easier use in SQL. The Haversine library is used to identify the nearest port of entry to each incident ("as the crow flies") and saved for plotting purposes. Once the datasets are refined, they are broken down into smaller datasets that can be joined or merged in a SQL database. These smaller datasets are output by Pandas as .csv files for loading into PostgreSQL.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div id="accordion-header-format">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" id="accordion-header-format" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          2) PostgreSQL Database
+                        </button>
+                      </h2>
+                    </div>
+                </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#acc-menu">
+                    <div class="card-body">
+                      <p class="card-text" id="card-descriptive-text">Each of the .csv outputs created by the Python script are imported into a Third Normal Form (3NF) PostgreSQL database using PGAdmin4 for storage and queries. Each .csv is loaded into its own table in PGAdmin4, so that it can be queried individually or joined with the other tables.</p>
+                      <br/>
+                      <p class="card-text" id="card-descriptive-text">Once the data is placed into SQL, a new set of de-normalized tables are created in preparation for API use. This involves grouping data for summary tables, deriving additional column variables, and populating new columns mapped to 3NF codes with corresponding descriptive values. These de-normalized summary tables are then referenced by the Python Flask application detailed in section 3.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div id="accordion-header-format">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" id="accordion-header-format" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          3) Flask API Creation
+                        </button>
+                      </h2>
+                    </div>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#acc-menu">
+                    <div class="card-body">
+                      <p class="card-text" id="card-descriptive-text">In order to make sure our data is accessible through the web, we created an application that hosts data APIs for our front-end visualizations to consume.</p>
+                        <br>
+                        <p class="card-text" id="card-descriptive-text">To create our API, we had to use Python in order to query the PostgreSQL database created in the previous step. We used an Object-Relational Mapper (ORM) called psycopg2 in order to do this.</p> 
+                        <p class="card-text" id="card-descriptive-text">To stage our Postgres data, we created 2 denormalized tables that joined essential information about ports and migrant incidents (refer to section 2 for more information).</p>
+                        <br>
+                        <p class="card-text" id="card-descriptive-text">After we created these tables on a local database, we used Heroku to host the database online. In order for Heroku to interface with our database correctly, we used the Heroku Postgres add-on during the creation of our Heroku server. The end result of this process is a production database that can drive the data for our Flask application.</p>
+                        <br>
+                        <p class="card-text" id="card-descriptive-text">In order to create an application to generate our API, we used Flask to create our app and our routes (similar to a website directory). Our app has two routes - one containing Missing Migrant data and another containing Border Crossing data.</p>                         
+                        <p class="card-text" id="card-descriptive-text">Our ORM query was simple - there were no filters applied or other manipuluations done using Python after the tables were hosted on Heroku Postgres.</p>
+                        <br>
+                        <p class="card-text" id="card-descriptive-text">At this point, the challenge was to get the tables from Postgres (that was in a tabular format) to be delivered in a JSON format for our API. After the JSON was returned for our migrant incident and port tables, our APIs were ready to be consumed.</p> 
+                        <br>
+                        <p class="card-text" id="card-descriptive-text">Finally, we hosted this Flask application on Heroku as an app. We did this so our APIs were hosted on the internet and could be easily called by any front-end. This data is ultimately used to generate the charts and maps on our site.</p>
+                        <br>
+                        <p class="card-text" id="card-descriptive-text">Hosting the app on Heroku required a full deployment, along with the installation of necessary resources on the server side.</p>
+                        </p>
+
+                        <img src='api-diagram.png' style="width: 100%;">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div id="accordion-header-format">
+                    <div class="card-header" id="headingFour">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" id="accordion-header-format" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          4) Creating Our Maps
+                        </button>
+                      </h2>
+                    </div>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#acc-menu">
+                    <div class="card-body">
+                      <p class="card-text" id="card-descriptive-text">An API Call is made to the API created in the previous step, and the data retrieved is used throughout our website to build our interactive visualizations. </p>
+                      <br/>
+                      <p class="card-text" id="card-descriptive-text">Our maps were created using the Leaflet.js JavaScript library. Map setup included specifying a set of map layers that can be toggled by the user (including a Street Map view and a Satellite view). Once the base map is built, Leaflet is used to plot individual markers that correspond to a missing migrant incident or a border port.</p>
+                      <br/>
+                      <p class="card-text" id="card-descriptive-text">In order to ensure our maps display correctly within our webpages, our Maps are created in their own .html documents and embedded into the website. An added benefit of this approach is that the full map can be viewed independently on it's own webpage by clicking the link at the bottom of the map on each page.</p>
+                      <br/>
+                      <h3>Plotting the Missing Migrant Incidents</h3>
+                      <hr/>
+                      <p class="card-text" id="card-descriptive-text">When data is retrieved from the Migrants branch of our API, a set of map layers are defined to match each year within our data. The data is then sorted by the year reported and stored. As the data is assigned to it's respective year layer, a counter is incremented in order to count the number of incidents in each year. These counts are then reported in the display in the bottom-left corner of our Dashboard map.</p>
+                      <br/>
+                      <p class="card-text" id="card-descriptive-text">Once sorted, a marker is created for each incident. An HTML template is added to each marker, containing both hard-coded HTML text (example: "Total Fatalities: ") and values dynamically populated from the data record (example: 3) for each line.</p>
+                      <br/>
+                      <p class="card-text" id="card-descriptive-text">The process for creating the map on our Southern Border Map page followed a similar format, however, instead of assigning data to a set of layers based on year, we chose to organize the migrant incidents data using marker clusters, in order to easily visualize the volume of migrant incidents in a given region along the US-Mexico border. This map is intended to show all of our data at once, to give a "big picture" perspective to our data, while the map on our dashboard is intended to visualize data in different ways to analyze incidents by year.</p>
+                      <br/>
+                      <h3>Plotting the Border Crossing Locations</h3>
+                      <hr/>
+                      <p class="card-text" id="card-descriptive-text">When data is retrieved from the Border branch of our API, the data is initially sorted by port code (example: 2301) in order to collect all the data associated with each port, regardless of year.</p>
+                      <br>
+                      <p class="card-text" id="card-descriptive-text">Once sorted, the data-packet is unpacked and sorted, storing the yearly data for each metric, which is then summed to gain a total for that metric. Once all the metric totals are compiled, a circle marker is created for each border port. An HTML template is added to each circle marker, containing both hard-coded HTML text (example: "Total Number of Trucks: ") and values dynamically populated from the data record (example: 365882) for each line.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div id="accordion-header-format">
+                    <div class="card-header" id="headingFive">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" id="accordion-header-format" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFour">
+                          5) Creating Our Charts
+                        </button>
+                      </h2>
+                    </div>
+                  </div>
+                  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#acc-menu">
+                    <div class="card-body">
+                      <p class="card-text" id="card-descriptive-text">API calls are made to the heroku host and the data retrieved is used throughout our website to build charts and create interactive maps. We used two libraries to produce the charts. The charts on the home page (above) were created using Plotly. The charts on the "Southern Border Map" page were generated using <a href="https://www.chartjs.org/" target="_blank">chartjs</a>. Each collection of charts is described as follows.</p>
+                      <br/>
+                      <h3>Plotly - Charts on the Dashboard</h3>
+                      <hr/>
+                      <p class="card-text" id="card-descriptive-text">There are two <strong>Plotly</strong> charts displaying: year-by-year trends for (1) migrant casualties (bar chart) and (2) pedestrian crossings (line chart). The charts compliment the Leaflet map view on the home page which enables the user to examine migrant incident volume and location by year. Each chart updates interactively to show information for specific ports of entry as selected from the drop down menu.</p>
+                      <br/>
+                      <h3>Chartjs - Charts on the Southern Border Map Page</h3>
+                      <hr/>
+                      <p class="card-text" id="card-descriptive-text">There are three charts created using <strong>Chartjs</strong> displaying: (1) migrant fatalities/incidents relative to different port and their respective pedestrian crossing volume (bubble chart), (2) migrant fatalities trend by year and sex (stacked line chart), and (3) cause-of-death (pie chart). All the charts are intended to compliment the Leaflet map on the same page which allows the user to explore areas around the ports to assess the volume of migrant incidents. The bubble chart is static, but provides a high-level perspective to see which ports are located in areas that appear to be more (or less) dangerous to migrants. The stacked line and pie charts refresh interactively with the port selected in the drop down menu, thereby enabling the user to drill down into the trends.</p>
+                      
+                    </div>
+                  </div>
+                </div>
+
+                
+
+
+
+
+
+              </div> <!--Closing tag for Accordion-->
+              <br/>
+              
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+
+            <div class="col-12 col-md-4">
+              <h2 id="subheaders">Data Sources</h2>
+              <hr id="ruler-color"/>
+              <p id="about-text">In order to perform this analysis, we used two separate datasets retrieved from <a href="https://www.kaggle.com/" target="_blank">kaggle.com</a>. We also introduced a third dataset from <a href="https://humaneborders.info/app/map.asp" target="_blank">humaneborders.info</a> to enhance our original datasets.</p>
+              
+              <br>
+              
+              <h4 id="subheaders">MISSING MIGRANTS PROJECT</h4>
+              <hr id="ruler-color"/>
+              <p id="about-text">The Missing Migrants Project records the deaths and disappearances of migrants around the world. According to the project's Kaggle page, the project's research began in October of 2013, following two shipwrecks near the island of Lampedusa which claimed at least 368 lives.</p>
+              <p id="data-link-text">Kaggle Source: <a href="https://www.kaggle.com/snocco/missing-migrants-project" target="_blank">Missing Migrants Project (.csv)</a></p>
+              <p id="data-link-text">Original Data Source*: <a href="https://missingmigrants.iom.int/" target="_blank">IOM's Missing Migrants Project</a></p>
+              <h4 id="subheaders">Attribution</h4>
+              <p id="about-text">* The Missing Migrants Project dataset is property of the Missing Migrants Project, with downloads of their data licensed under a Creative Commons Attribution 4.0 International License. This type of license indicates the free use of the licensed material as long as proper attribution is given to the asset's original owner. Per the request of the original owner, a link to the original data source has been included above.</p>
+              <p id="about-text"><strong>Note:</strong> In order to fit our needs, the original dataset has been modified. Our modifications include cleansing the original dataset and updating certain records with data from local law enforcement sources (see the humaneborders.info section below).</p>
+              <br/>
+              
+              <h4 id="subheaders">BUREAU OF TRANSPORTATION STATISTICS BORDER CROSSING DATA</h4>
+              <hr id="ruler-color"/>
+              <p id="about-text">This dataset is a compilation of summary statistics for <i>inbound crossings</i> at the port level for both the Canadian and Mexican borders. This summary data is based upon data collected at each border port by U.S. Customs and Border Protection. Statistics are included for pedestrians, personal vehicles, passengers, buses, trucks, containers and trains entering the United States.</p>
+              <p id="data-link-text">Source: <a href="https://www.kaggle.com/akhilv11/border-crossing-entry-data" target="_blank">Border Crossing Entry Data (.csv)</a></p>
+              <br/>
+
+              <h4 id="subheaders">HUMANEBORDERS.INFO</h4>
+              <hr id="ruler-color"/>
+              <p id="about-text">As we began plotting each incident from the Missing Migrants Project data, we encountered anomalies in the way the data was plotted (hundreds of incidents shared the same coordinates). Upon further inspection of the affected points, we realized that the data containing these incidents contained placeholder coordinates that masked the true locations of these incidents.</p>
+              <br/>
+              <p id="about-text">To fix the problem, we sourced data from the humaneborders.info website and matched to the Missing Migrants Project data incidents on incident date, fatality count and cause of death, allowing us to examine these incidents with their original coordinates.</p>
+              <p id="data-link-text">Source: <a href="https://humaneborders.info/app/map.asp" target="_blank">HumaneBorders.info Custom Map of Migrant Mortality (.csv)</a></p>
+            
+            
+            </div>
+            
+            
+
+          </div>
+          <br/>
+        </div>
+        <br/>
+      </div> <!--Div closing "Backer"-->
+      
+      <br/>
+      
+      </div> <!--Div closing "Container"-->
+      <br/>
+    
+
+
+
+  </div>
+ 
+  
+</div> <!--Div closing "Background"-->
+
+<!-- SCRIPTS -->
+<!------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------->
+
+<!-- External Library Scripts -->
+
+<!-- Leaflet.JS Script -->
+<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+<!-- D3.JS Script -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+
+
+<!------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------->
+
+
+<!-- Custom JavaScript Scripts -->
+<!-- map-config.JS - Mapbox API Key Storage -->
+<script type="text/javascript" src="static/js/map-config.js"></script>
+
+
+
+<!-- visuals.js - Powers maps, graphs and D3 selections-->
+<script type="text/javascript" src="static/js/visuals.js"></script>
+
+
+
+</body>
+ 
+</html>

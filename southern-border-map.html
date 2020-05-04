@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Migration Incidents - Project 2 - Southern Map</title>
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="static/css/styles.css">
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+  <div id="background">
+    <!-- HEADER / JUMBOTRON -->
+    <div class="jumbotron jumbotron-fluid" id="jumbo-color">
+      <div class="container">
+        <h1 class="display-4">Migrant Deaths in the Southwest United States</h1>
+        <br/>
+        <br/>
+        <p class="lead">Compiled by David Born, Sam Ewing and Pranav Jayanth</p>
+          
+        <br/>
+          
+        <!-- NAV BAR -->
+        <nav class="navbar navbar-expand-lg navbar-light" id="nav-background">
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" id="nav-format-standard" href="index.html"><strong>Dashboard</strong></a>
+              <a class="nav-item nav-link active" id="nav-format-active" href="southern-border-map.html"><strong>Southern Border Map</strong><span class="sr-only">(current)</span></a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="container">
+      <div id="backer">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <h1 id="header-format">SOUTHERN BORDER MAP</h1>
+          </div>
+          <br/>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <div id="southern-map-container">
+              <div id="southern-map-tag">
+                <iframe id="i-frame" src="southern-leaflet.html"></iframe>
+              </div>
+            </div>
+            <br/>
+            <h3 id="subheaders"><a href="southern-leaflet.html" target="_blank">See a larger version of this map here.</a></h3>
+          </div>
+        </div>
+
+        <br/>
+        
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <h1 id="header-format">VISUAL SUMMARY</h1>
+          </div>
+          <br/>
+        </div>
+
+        <br/>
+
+        <div class="row">
+
+          <div class="col-md-7">
+            <div id="graph-container">
+              <div id="migrant-graph-tag">
+                <canvas id="ports" width="400" height="300"></canvas>
+                <!-- <h1 style="text-align: center;">Migrant graph here (remove this text when ready for JS)</h1> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <br/>
+            
+            <div class="well" id="well-color">
+              <h5 id="well-text">Select a Port of Entry</h5>
+              <br/>
+              <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            </div>
+            
+            <br/>
+            
+            <p class="instruction-text">Hover over a bubble on the chart to the left to discover which ports of entry are in the most dangerous areas in terms of nearby migrant fatalities.  Larger bubbles indicate more migrant incidents and bubbles higher on the chart indicate more deaths per month.</p>
+            <p class="instruction-text">Then, use the dropdown menu above to select a port to drill down into fatality trends and cause-of-death as shown in the charts below.</pclass="instruction">
+
+          </div>
+         
+          <div class="col-md-1">
+            
+            <div id="graph-container">
+              <div id="border-graph-tag">
+                
+              </div>
+            </div>
+
+          </div>
+        </div> <!--Div closing "Row"-->
+        
+        <br/>
+
+        <hr/>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div id="graph-container">
+              <div id="line-chart">
+                <canvas id="fatalities" width="500" height="350"></canvas>
+                <!-- <h1 style="text-align: center;">Migrant graph here (remove this text when ready for JS)</h1> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div id="graph-container">
+              <div id="pie-chart">
+                <canvas id="causeDeath" width="500" height="350"></canvas>
+              </div>
+            </div>
+          </div>
+
+          
+        </div> <!--Div closing "Row"-->
+        <br/>
+
+    </div> <!--Div closing "Backer"-->
+    <br/>
+    
+    
+    
+
+    
+
+
+    
+
+
+
+  </div> <!--Div closing "Container"-->
+  <br/>
+</div> <!--Div closing "Background"-->
+
+<!-- SCRIPTS -->
+<!------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------->
+
+<!-- External Library Scripts -->
+
+<!-- Leaflet.JS Script -->
+<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<!-- D3.JS script -->
+
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script> -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<!-- chartjs Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<!------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------->
+
+
+<!-- Custom JavaScript SCRIPTS -->
+<!-- map-config.JS - Mapbox API Key Storage -->
+<script type="text/javascript" src="static/js/map-config.js"></script>
+
+<!-- southern-map.js - Powers maps, graphs and D3 selections-->
+<script type="text/javascript" src="static/js/southern-map.js"></script>
+
+
+</body>
+</html>
