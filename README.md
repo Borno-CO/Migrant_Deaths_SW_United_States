@@ -7,7 +7,7 @@
 
 The goal of this project is to examine migrant deaths in relation to border crossing traffic along the US-Mexico border. Through visualizing the data recorded by the Missing Migrant Project and the Bureau of Transportation Statistics, we aim to provide a means of visual analysis of migration patterns and missing migrants at different points-of-entry along the southern border. The resulting visualizations should enable one to assess more dangerous border regions in relation to ports of entry.
 
-## Go To Web Page Deployment
+## To Experience Our Project
 
 To access our project results, click on this link https://www.kaggle.com/akhilv11/border-crossing-entry-data 
 
@@ -79,13 +79,15 @@ Our maps were created using the Leaflet.js JavaScript library. Map setup include
 In order to ensure our maps display correctly within our webpages, our Maps are created in their own .html documents and embedded into the website. An added benefit of this approach is that the full map can be viewed independently on it's own webpage by clicking the link at the bottom of the map on each page.
 
 **Plotting the Missing Migrant Incidents**
-When data is retrieved from the Migrants branch of our API, a set of map layers are defined to match each year within our data. <u>On our Dashboard Map page</U>, the data is then sorted by the year reported and stored. As the data is assigned to it's respective year layer, a counter is incremented in order to count the number of incidents in each year. These counts are then reported in the display in the bottom-left corner of our Dashboard map.
+
+When data is retrieved from the Migrants branch of our API, a set of map layers are defined to match each year within our data. **On our Dashboard Map page**, the data is then sorted by the year reported and stored. As the data is assigned to it's respective year layer, a counter is incremented in order to count the number of incidents in each year. These counts are then reported in the display in the bottom-left corner of our Dashboard map.
 
 Once sorted, a marker is created for each incident. An HTML template is added to each marker, containing both hard-coded HTML text (example: "Total Fatalities: ") and values dynamically populated from the data record (example: 3) for each line.
 
-The process for creating the map <u>on our Southern Border Map page</u> followed a similar format, however, instead of assigning data to a set of layers based on year, we chose to organize the migrant incidents data using marker clusters, in order to easily visualize the volume of migrant incidents in a given region along the US-Mexico border. This map is intended to show all of our data at once, to give a "big picture" perspective to our data, while the map on our dashboard is intended to visualize data in different ways to analyze incidents by year.
+The process for creating the map **on our Southern Border Map page** followed a similar format, however, instead of assigning data to a set of layers based on year, we chose to organize the migrant incidents data using marker clusters, in order to easily visualize the volume of migrant incidents in a given region along the US-Mexico border. This map is intended to show all of our data at once, to give a "big picture" perspective to our data, while the map on our dashboard is intended to visualize data in different ways to analyze incidents by year.
 
 **Plotting the Border Crossing Locations**
+
 When data is retrieved from the Border branch of our API, the data is initially sorted by port code (example: 2301) in order to collect all the data associated with each port, regardless of year.
 
 Once sorted, the data-packet is unpacked and sorted, storing the yearly data for each metric, which is then summed to gain a total for that metric. Once all the metric totals are compiled, a circle marker is created for each border port. An HTML template is added to each circle marker, containing both hard-coded HTML text (example: "Total Number of Trucks: ") and values dynamically populated from the data record (example: 365882) for each line.
@@ -94,9 +96,11 @@ Once sorted, the data-packet is unpacked and sorted, storing the yearly data for
 API calls are made to the heroku host and the data retrieved is used throughout our website to build charts and create interactive maps. We used two libraries to produce the charts. The charts on the home page (above) were created using Plotly. The charts on the "Southern Border Map" page were generated using chartjs. Each collection of charts is described as follows.
 
 **Plotly - Charts on the Dashboard**
+
 There are two Plotly charts displaying: year-by-year trends for (1) migrant casualties (bar chart) and (2) pedestrian crossings (line chart). The charts compliment the Leaflet map view on the home page which enables the user to examine migrant incident volume and location by year. Each chart updates interactively to show information for specific ports of entry as selected from the drop down menu.
 
 **Chartjs - Charts on the Southern Border Map Page**
+
 The Boot Camp project assignment required the use of a JS library to which the students had not been previously exposed or trained. We chose Chartjs to create some visualizations and satisfy the requirement. 
 
 There are three charts created using Chartjs displaying: (1) migrant fatalities/incidents relative to different ports and their respective pedestrian crossing volume (bubble chart), (2) migrant fatalities trend by year and sex (stacked line chart), and (3) cause-of-death (pie chart). All the charts are intended to compliment the Leaflet map on the same page which allows the user to explore areas around the ports to assess the volume of migrant incidents. The bubble chart is static, but provides a high-level perspective to see which ports are located in areas that appear to be more (or less) dangerous to migrants. The stacked line and pie charts refresh interactively with the port selected in the drop down menu, thereby enabling the user to drill down into the trends.
