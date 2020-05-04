@@ -7,9 +7,9 @@
 
 The goal of this project is to examine migrant deaths in relation to border crossing traffic along the US-Mexico border. Through visualizing the data recorded by the Missing Migrant Project and the Bureau of Transportation Statistics, we aim to provide a means of visual analysis of migration patterns and missing migrants at different points-of-entry along the southern border. The resulting visualizations should enable one to assess more dangerous border regions in relation to ports of entry.
 
-## To Experience Our Project
+## To Experience Our Project Web Site
 
-To access our project results, click on this link https://www.kaggle.com/akhilv11/border-crossing-entry-data 
+To access our project results, click on this link https://borno-co.github.io/Migrant_Deaths_SW_United_States/ 
 
 Our deployment is comprised of two web pages:
 
