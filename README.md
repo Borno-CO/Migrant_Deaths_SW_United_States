@@ -39,7 +39,7 @@ The interactive map on this page organizes the migrant deaths for all years comb
 
 ## Technologies and Special Libraries
 
-Python, Pandas, Jupyter Notebook, Excel, PostgreSQL, Haversine library, Flask, psycopg2, Heroku, Leaflet, D3, Plotly, ChartJS, HTML, CSS, Javascript
+Python, Pandas, Jupyter Notebook, Excel, PostgreSQL, Haversine, Flask, psycopg2, Heroku, Leaflet, D3, Plotly, ChartJS, HTML, CSS, Javascript
 
 ## Data Transformation and Methodology
 
